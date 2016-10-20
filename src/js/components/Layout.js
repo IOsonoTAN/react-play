@@ -3,20 +3,29 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-export default class Layout extends React.Component {
-  navigate() {
-    this.props.history.pushState(null, "/")
-  }
+import Header from './Header'
+import Nav from './layouts/Nav'
 
+export default class Layout extends React.Component {
   render() {
-    const { history } = this.props
-    console.log(history.isActive('achieves'))
+    const { location } = this.props
+    const containerStyle = {
+      paddingTop: '75px'
+    }
+
     return (
       <div>
-        <button onClick={ this.navigate.bind(this) }>features</button>
-        <Link class="btn btn-link" activeClassName="active" to="achieves">achieves</Link>
-        <Link class="btn btn-link" activeClassName="active" to="settings">button</Link>
-        { this.props.children }
+
+        <Nav location={ location } />
+
+        <div class="container" style={ containerStyle }>
+          <div class="row">
+            <div class="col-lg-12">
+              { this.props.children }
+            </div>
+          </div>
+        </div>
+
       </div>
     );
   }
