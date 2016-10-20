@@ -28,13 +28,13 @@ export default class Featured extends React.Component {
       <div>
         <div class="row">
           <div class="col-xs-12">
-            <strong>Filters: </strong> { query.date }
+            <strong>Filters: </strong> { query.date } { query.filter }
           </div>
         </div>
         <div class="row">
           { Articles }
         </div>
       </div>
-    );
+    )
   }
 }

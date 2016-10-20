@@ -3,7 +3,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import Header from './Header'
+import Footer from './Footer'
 import Nav from './layouts/Nav'
 
 export default class Layout extends React.Component {
@@ -15,7 +15,6 @@ export default class Layout extends React.Component {
 
     return (
       <div>
-
         <Nav location={ location } />
 
         <div class="container" style={ containerStyle }>
@@ -26,7 +25,9 @@ export default class Layout extends React.Component {
           </div>
         </div>
 
+        <Footer />
+
       </div>
-    );
+    )
   }
 }
