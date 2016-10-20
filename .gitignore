@@ -1,2 +1,6 @@
+# external modules
 node_modules
 bower_components
+
+# bundle files
+src/client.min.js
