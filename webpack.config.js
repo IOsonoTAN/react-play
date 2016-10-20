@@ -2,6 +2,7 @@
 
 const debug = process.env.NODE_ENV !== "production";
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   context: __dirname,
@@ -21,7 +22,8 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname + "/src/",
+    path: path.join(__dirname, '/src'),
+    publicPath: '/src',
     filename: "client.min.js"
   },
   plugins: debug ? [] : [

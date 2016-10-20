@@ -1,36 +1,22 @@
 'use strict'
 
 import React from 'react'
-import Moment from 'moment'
-
-import Header from './Header'
-import Footer from './Footer'
+import { Link } from 'react-router'
 
 export default class Layout extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      firstName: 'Krissada',
-      lastName: 'Boontrigratn',
-      title: 'Welcome'
-    };
-  }
-
-  getCurrentDate(format = 'DD/MM/YY HH:mm') {
-    return Moment().format(format)
-  }
-
-  changeTitle(title) {
-    this.setState({ title })
+  navigate() {
+    this.props.history.pushState(null, "/")
   }
 
   render() {
+    const { history } = this.props
+    console.log(history.isActive('achieves'))
     return (
       <div>
-        <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
-        <h1>{this.state.firstName}, {this.state.lastName}!</h1>
-        <h2>{this.getCurrentDate()}</h2>
-        <Footer />
+        <button onClick={ this.navigate.bind(this) }>features</button>
+        <Link class="btn btn-link" activeClassName="active" to="achieves">achieves</Link>
+        <Link class="btn btn-link" activeClassName="active" to="settings">button</Link>
+        { this.props.children }
       </div>
     );
   }
