@@ -9,6 +9,7 @@ import Footer from './Footer'
 export default class Layout extends React.Component {
   constructor() {
     super();
+
     this.state = {
       firstName: 'Krissada',
       lastName: 'Boontrigratn',
